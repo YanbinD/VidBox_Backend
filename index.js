@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
+require("./models/genre");
 
 const express = require("express");
 const app = express();
 const logger = require("./middleware/logger");
+const genresRoute = require("./routes/genresRoute");
 
 mongoose
 .connect("mongodb://localhost/vidly")
 .then(() => console.log("Connected to MongoDB.."))
 .catch(err => console.error("could not connected to MongoDB"));
 
-require("./models/genre");
 
-const genresRoute = require("./routes/genresRoute");
 app.use(express.json()); // for pasring the JSON body
 // express.json() return a middleware
 // app.use(logger);
