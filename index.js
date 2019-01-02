@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 require("./models/genre");
-
+require("./models/customers");
 const express = require("express");
 const app = express();
 const logger = require("./middleware/logger");
 const genresRoute = require("./routes/genresRoute");
+const customersRoute = require("./routes/customersRoute");
 
 mongoose
 .connect("mongodb://localhost/vidly")
