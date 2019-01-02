@@ -1,11 +1,15 @@
+const mongoose = require ('mongoose');
 const express = require('express');
 const router = express.Router();
 
-const genres = [
-    { id: 1, name: 'Action' },  
-    { id: 2, name: 'Horror' },  
-    { id: 3, name: 'Romance' },  
-  ];
+// retrieve the collection from mongoDB
+const Genre = mongoose.model('Genre'); 
+
+// const genres = [
+//     { id: 1, name: 'Action' },  
+//     { id: 2, name: 'Horror' },  
+//     { id: 3, name: 'Romance' },  
+//   ];
   
   // ========= GET all =========
   router.get('/', (req, res) => {
