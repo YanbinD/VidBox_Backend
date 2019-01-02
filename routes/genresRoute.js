@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const {validateGenre} = require('../services/validateGenre')
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
@@ -60,15 +60,5 @@ router.get("/:id", async (req, res) => {
   res.send(genre);
 });
 
-// validate the req.body
-function validateGenre(genre) {
-  const schema = {
-    name: Joi.string()
-      .min(3)
-      .required()
-  };
-
-  return (Joi.validate(genre, schema));
-}
 
 module.exports = router;

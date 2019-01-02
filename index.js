@@ -17,6 +17,7 @@ app.use(express.json()); // for pasring the JSON body
 // express.json() return a middleware
 // app.use(logger);
 app.use("/api/genres", genresRoute);
+app.use("/api/customers", customersRoute);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

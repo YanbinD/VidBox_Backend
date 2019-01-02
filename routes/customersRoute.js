@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const {validateCustomer} = require('../services/validateCustomers')
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
@@ -62,13 +62,5 @@ router.get('/:id', async (req, res) => {
 });
 
 
-function validateCustomer(customer) {
-  const schema = {
-    name: Joi.string().min(5).max(50).required(),
-    phone: Joi.string().min(5).max(50).required(),
-    isGold: Joi.boolean()
-  };
-  return Joi.validate(customer, schema);
-}
 
 module.exports = router; 
